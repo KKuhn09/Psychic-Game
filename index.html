@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+  </head>
+  <body>
+
+    <h1>The Psychic Game</h1>
+
+    <h2>Guess what letter I'm thinking of.</h2>
+
+    <h3>Type any letter, and see the result below!</h3>
+
+    <p id="p1">Wins: 0</p>
+    <p id="p2">Losses: 0</p>
+    <p id="p3">Guesses Left: 10</p>
+    <p id="p4">Your guesses so far: </p>
+
+    <script type="text/javascript">
+
+      var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+      var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+
+      var wins = 0;
+      var losses = 0;
+      var guessesLeft = 10;
+      var guessesSoFar = [];
+
+       /* getResults: function(){
+          document.getElementById("p1").innerHTML = ("Wins: " + wins);
+          document.getElementById("p2").innerHTML = ("Losses: " + losses);
+          document.getElementById("p3").innerHTML = ("Guesses Left: " + guessesLeft);
+          document.getElementById("p4").innerHTML = ("Your guesses so far: " + guessesSoFar);
+        }*/
+
+      document.onkeypress = function(event){
+        
+        var playerGuess = event.key;
+
+        if(playerGuess === computerGuess){
+          wins++;
+          computerGuess = letters[Math.floor(Math.random() * letters.length)];
+        }
+        else{
+          guessesLeft--;
+          guessesSoFar.push(event.key);
+          document.getElementById("p4").innerHTML = ("Your guesses so far: " + guessesSoFar)
+        }
+        if(guessesLeft === 0){
+          losses++;
+          guessesLeft = 10;
+          guessesSoFar = [];
+
+        }
+
+        document.getElementById('p1').innerHTML = ("Wins: " + wins);
+        document.getElementById('p2').innerHTML = ("Losses: " + losses);
+        document.getElementById('p3').innerHTML = ("Guesses Left: " + guessesLeft);
+        document.getElementById('p4').innerHTML = ("Your guesses so far: " + guessesSoFar);
+
+      }
+        
+
+        /*if(event.key == computerGuess){
+          wins++;
+          player.getResults();
+        }
+        else{
+          losses++;
+          guessesSoFar.push(event.key);
+          player.getResults();
+        }*/
+
+    </script>
+    
+  </body>
+</html>
