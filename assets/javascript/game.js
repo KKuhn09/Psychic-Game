@@ -37,7 +37,7 @@ document.onkeypress = function(event){
 		else{
  			guessesLeft--;
   			guessesSoFar.push(event.key);
-  			document.getElementById("p4").innerHTML = ("Your guesses so far: " + guessesSoFar)
+  			document.getElementById("p4").innerHTML = ("Your guesses so far: " + guessesSoFar);
 		}
 
 		//If the number of guesses left reaches 0, # of losses will be incremented by 1, guesses left will be reset to 10, and guesses so far will be cleared

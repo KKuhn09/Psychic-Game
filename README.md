@@ -1,1 +1,2 @@
 # Psychic-Game
+The game will randomly generate a letter that is hidden to the player. The player is prompted to type a letter in as a guess, and they have 10 guesses. If they type a letter in that is not the letter generated, then it will be displayed to the user as a guess. Also, their 10 guesses will be decremented by 1. If all 10 guesses are used up, the player will lose and their losses will be incremented by 1. If the player types a letter that matches the hidden random number, the game will be reset and their wins will be incremented by 1.
