@@ -23,21 +23,20 @@ document.onkeypress = function(event){
 
 	//Checks if the key entered by the user is a-z
 	if(guessCode >= 97 && guessCode <= 122){
-	//If the key pressed by the user is a-z, the following will execute	
 
-		//If key pressed by the user matches 'computerGuess', wins will be incremented by 1, guesses left will be reset to 10, the computer will generate a new random letter, and 'guessesSoFar' will be cleared
+		//If key pressed by the user matches the computers guess
 		if(playerGuess === computerGuess){
-  			wins++;
-  			guessesLeft = 10;
-  			computerGuess = letters[Math.floor(Math.random() * letters.length)];
-  			guessesSoFar = [];
+  			wins++; //increment wins by 1
+  			guessesLeft = 10; //guesses left reset to 10
+  			computerGuess = letters[Math.floor(Math.random() * letters.length)]; //computer generates new guess
+  			guessesSoFar = []; //guessesSoFar is cleared
 		}
 
-		//If the key pressed by the user does not match 'computerGuess', # of guesses left will be decremented by 1, the letter guessed will be added to array 'guessesSoFar' and displayed to the user
+		//If the key pressed by the user does not match 'computerGuess'
 		else{
- 			guessesLeft--;
-  			guessesSoFar.push(event.key);
-  			document.getElementById("p4").innerHTML = ("Your guesses so far: " + guessesSoFar);
+ 			guessesLeft--; //decrement guessLeft
+  			guessesSoFar.push(event.key); //letter guessed will be added to guessesSoFar
+  			document.getElementById("p4").innerHTML = ("Your guesses so far: " + guessesSoFar); //display guessesSoFar
 		}
 
 		//If the number of guesses left reaches 0, # of losses will be incremented by 1, guesses left will be reset to 10, and guesses so far will be cleared
